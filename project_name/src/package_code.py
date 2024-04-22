@@ -18,4 +18,4 @@ def get_test(compound):
         
        
 
-print (get_test('glucose'))
+get_test('glucose','aspirin')
