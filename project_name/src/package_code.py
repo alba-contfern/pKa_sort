@@ -188,10 +188,13 @@ def pka_lookup_pubchem(identifier, namespace=None, domain='compound') -> Optiona
             print(traceback_str)
 
         return None
-pka=pka_lookup_pubchem('aspirin','name')
-print (pka['pKa'])
-list=['glucose','aspirin','formaldehyde']
+
+#function to obtain all pkas of a list
+list=['acetic acid','aspirin','formaldehyde']
 def pka_increasing(list):
-    for compound in (list):
-        pka=pka_lookup_pubchem(compound, 'name')
-        print (pka[pKa])
+    for i in range (len(list)):
+        pka=pka_lookup_pubchem(list[i],'name')
+        print (f'{list[i]}:', pka['pKa'])
+        
+                
+pka_increasing(list)
