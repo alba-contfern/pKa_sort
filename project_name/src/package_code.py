@@ -189,12 +189,17 @@ def pka_lookup_pubchem(identifier, namespace=None, domain='compound') -> Optiona
 
         return None
 
-#function to obtain all pkas of a list
-list=['acetic acid','aspirin','formaldehyde']
+
+        
+list=['acetic acid','aspirin','ibuprofen','benzoic acid']
+#creates a dictionnary with each pka value associated to the molecule, then sorts them from most to least acidic
 def pka_increasing(list):
+    dict={}
     for i in range (len(list)):
         pka=pka_lookup_pubchem(list[i],'name')
-        print (f'{list[i]}:', pka['pKa'])
+        dict[pka['pKa']]=list[i]
+    print (sorted(dict.items()))
         
-                
+        
+        
 pka_increasing(list)
