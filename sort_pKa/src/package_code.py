@@ -8,12 +8,6 @@ import pandas as pd
 from rdkit.Chem.Draw import IPythonConsole
 IPythonConsole.ipython_useSVG=True
 
-def main(list):
-    return generate_image(list)
-    return pka_increasing(list)
-    
-
-
 #function that gets the smile for each molecule
 def get_test(compound):
     results = pcp.get_compounds(compound, 'name')
@@ -207,7 +201,6 @@ def pka_increasing(list):
         dict[pka['pKa'][0:3]]=list[i]
     print (sorted(dict.items()))
         
-if __name__="__main__":
-    main()
+if __nam
         
-
+pka_increasing(list)
