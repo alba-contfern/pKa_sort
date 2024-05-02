@@ -197,8 +197,8 @@ def pka_increasing(list):
     dict={}
     for i in range (len(list)):
         pka=pka_lookup_pubchem(list[i],'name')
-        dict[pka['pKa']]=list[i]
-    print (sorted(dict.items()))
+        dict[pka['pKa'][0:4]]=list[i]
+    return sorted(dict.items())
         
         
         
