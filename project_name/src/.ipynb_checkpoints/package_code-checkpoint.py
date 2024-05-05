@@ -8,6 +8,12 @@ import pandas as pd
 from rdkit.Chem.Draw import IPythonConsole
 IPythonConsole.ipython_useSVG=True
 
+def main(list):
+    return generate_image(list)
+    return pka_increasing(list)
+    
+
+
 #function that gets the smile for each molecule
 def get_test(compound):
     results = pcp.get_compounds(compound, 'name')
@@ -17,31 +23,15 @@ def get_test(compound):
         return mol
 #function that allows all molecules to be represented at the same time
 
-def main(list):
-    return pka_increasing(list)
-    
-if __name__="__main__":
-    main()
-    
 
-def pka_increasing(list):
-    dict={}
-    for i in range (len(list)):
-        pka=pka_lookup_pubchem(list[i],'name')
-        dict[pka['pKa'][0:4]]=list[i]
+def generate_image(list:list):
     mss=[]
     for index,value in enumerate(list):
         mss.append(get_test(value))
-    print (sorted(dict.items()))
     return Draw.MolsToGridImage(mss)
-    
-        
-        
-        
-pka_increasing(list)
 
 
-
+generate_image(list)
 
 #We need an entry in Cas or the name but need to specify it in the second entry of the function
 # either pka_lookup_pubchem("acetic acid", "Name") or pka_lookup_pubchem("'64-19-7' ","cid")
@@ -209,5 +199,15 @@ def pka_lookup_pubchem(identifier, namespace=None, domain='compound') -> Optiona
 
         
 list=['acetic acid','aspirin','ibuprofen','benzoic acid']
-
+#creates a dictionnary with each pka value associated to the molecule, then sorts them from most to least acidic
+def pka_increasing(list):
+    dict={}
+    for i in range (len(list)):
+        pka=pka_lookup_pubchem(list[i],'name')
+        dict[pka['pKa'][0:3]]=list[i]
+    print (sorted(dict.items()))
         
+if __name__="__main__":
+    main()
+        
+
