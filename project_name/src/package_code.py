@@ -21,9 +21,8 @@ def get_test(compound):
         smiles= compound.isomeric_smiles
         mol=Chem.MolFromSmiles(smiles)
         return mol
+        
 #function that allows all molecules to be represented at the same time
-
-
 def generate_image(list:list):
     mss=[]
     for index,value in enumerate(list):
