@@ -31,8 +31,6 @@ def generate_image(list:list):
     return Draw.MolsToGridImage(mss)
 
 
-generate_image(list)
-
 #We need an entry in Cas or the name but need to specify it in the second entry of the function
 # either pka_lookup_pubchem("acetic acid", "Name") or pka_lookup_pubchem("'64-19-7' ","cid")
 import re
@@ -204,15 +202,10 @@ def pka_increasing(list):
     dict={}
     for i in range (len(list)):
         pka=pka_lookup_pubchem(list[i],'name')
-<<<<<<< HEAD
         dict[pka['pKa'][0:4]]=list[i]
     return sorted(dict.items())
-=======
-        dict[pka['pKa'][0:3]]=list[i]
-    print (sorted(dict.items()))
->>>>>>> 037568030d0e83a9d978fd26a8dbadd5f9b730ef
+
         
-if __name__="__main__":
-    main()
+
         
 
