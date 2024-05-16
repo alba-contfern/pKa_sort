@@ -14,8 +14,9 @@ To install this package, you need to make sure that the following packages are i
 You can install them by entering the following lines into your terminal:
 
 ```bash
-pip install rdkit
-pip install pubchempy
-pip install pandas
+pip install rdkit==2022.9.5
+pip install pubchempy==1.0.4
+pip install pandas==2.1.4
 ```
 
+Note: these are the versions of the packages that were used to build this code, it could potentially work with other versions of these packages.
