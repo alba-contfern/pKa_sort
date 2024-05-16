@@ -1,10 +1,10 @@
-#Acidity comparison
+# Acidity comparison
 
 Welcome to the repository for the acidity comparison package. The objective of creating this package was to have a program able to sort a list of given molecules from least to most acid. This can be useful for first year organic chemists, when learning about acidity and how to classify acids from weakest to strongest. 
 
 This package mainly uses rdkit and pubchempy packages, pubchem being the source for all the pka values that the package outputs. 
 
-#Installation
+# Installation
 
 To install this package, you need to make sure that the following packages are installed:
 -rdkit
