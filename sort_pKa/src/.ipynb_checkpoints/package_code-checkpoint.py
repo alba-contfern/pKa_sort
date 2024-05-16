@@ -18,10 +18,12 @@ IPythonConsole.ipython_useSVG=True
 #function that gets the smile for each molecule
 def get_test(compound):
     results = pcp.get_compounds(compound, 'name')
-    for compound in results:
-        smiles= compound.isomeric_smiles
-        mol=Chem.MolFromSmiles(smiles)
-        return mol
+    if results:
+        for compound in results:
+            smiles= compound.isomeric_smiles
+            mol=Chem.MolFromSmiles(smiles)
+            return mol
+    return 'Could not find molecule'
 
 
 
@@ -184,10 +186,15 @@ def pka_increasing(list):
     dict={}
     for i in range (len(list)):
         pka=pka_lookup_pubchem(list[i],'name')
-        dict[pka['pKa'][0:4]]=list[i]
-    molecule_list_pka=dict.items()
-    sorted_list = sorted(molecule_list_pka, key=lambda x: float(x[0]))
+        if pka:
+            dict[pka['pKa'][0:4]]=list[i]
+            molecule_list_pka=dict.items()
+            sorted_list = sorted(molecule_list_pka, key=lambda x: float(x[0]))
+        else:
+            return f'Could not find pKa value for {list[i]}'
     return sorted_list
+        #else:
+            #return f'Could not find pKa value for {list[i]}'
 
 #should take as an input the result of the pka_increasing function and get the images in the right order
 def generate_image(list_of_molecule):
@@ -206,13 +213,17 @@ def generate_image(compound_list):
         mol = get_mol(molecule_name)
         if mol:
             mss.append(mol)
-        core=Chem.MolFromSmarts('[OH]')
+    core=Chem.MolFromSmarts('[OH]')
     return Draw.MolsToGridImage(mss,highlightAtomLists=[mol.GetSubstructMatch(core) for mol in mss])
 
 def main(compound_list):
     print (pka_increasing(compound_list))
-    return generate_image(pka_increasing(compound_list))
-
+    if type(pka_increasing(compound_list))==list:
+        return generate_image(pka_increasing(compound_list))
+    else:
+        return 'Could not generate images because no pKa was found'
+   
+    
 
     
-main(['propylene glycol','aspirin','ibuprofen'])
+main(['water','aspirin','ibuprofen'])
