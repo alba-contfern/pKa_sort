@@ -1,10 +1,17 @@
 
+import rdkit
 from rdkit import Chem
 import pubchempy as pcp
 from pubchempy import get_compounds
 from rdkit.Chem import Draw
 import pandas as pd
-
+import re
+import sys
+import traceback
+import xml.etree.ElementTree as ET
+from typing import Optional
+import pandas as pd
+import requests
 from rdkit.Chem.Draw import IPythonConsole
 IPythonConsole.ipython_useSVG=True
 
@@ -15,49 +22,14 @@ def get_test(compound):
         smiles= compound.isomeric_smiles
         mol=Chem.MolFromSmiles(smiles)
         return mol
-#function that allows all molecules to be represented at the same time
-
-def main(list):
-    return pka_increasing(list)
-    
-if __name__="__main__":
-    main()
-    
-
-def pka_increasing(list):
-    dict={}
-    for i in range (len(list)):
-        pka=pka_lookup_pubchem(list[i],'name')
-        dict[pka['pKa'][0:4]]=list[i]
-    mss=[]
-    for index,value in enumerate(list):
-        mss.append(get_test(value))
-    print (sorted(dict.items()))
-    return Draw.MolsToGridImage(mss)
-    
-        
-        
-        
-pka_increasing(list)
-
 
 
 
 #We need an entry in Cas or the name but need to specify it in the second entry of the function
 # either pka_lookup_pubchem("acetic acid", "Name") or pka_lookup_pubchem("'64-19-7' ","cid")
-import re
-import sys
-import traceback
-import xml.etree.ElementTree as ET
-from typing import Optional
-import pandas as pd
-import pubchempy as pcp  
-import requests
 
 
 debug = False
-
-
 def pka_lookup_pubchem(identifier, namespace=None, domain='compound') -> Optional[str]:
     global debug
 
@@ -207,7 +179,40 @@ def pka_lookup_pubchem(identifier, namespace=None, domain='compound') -> Optiona
         return None
 
 
-        
-list=['acetic acid','aspirin','ibuprofen','benzoic acid']
+#function that sort the list of molecule and return a list of set in order for the pka
+def pka_increasing(list):
+    dict={}
+    for i in range (len(list)):
+        pka=pka_lookup_pubchem(list[i],'name')
+        dict[pka['pKa'][0:4]]=list[i]
+    molecule_list_pka=dict.items()
+    sorted_list = sorted(molecule_list_pka, key=lambda x: float(x[0]))
+    return sorted_list
 
-        
+#should take as an input the result of the pka_increasing function and get the images in the right order
+def generate_image(list_of_molecule):
+    mss=[]
+    for i,value in enumerate(list_of_molecule):
+        molecule_name = list_of_molecule[i][1]
+        mss.append(get_test(molecule_name))
+    return Draw.MolsToGridImage(mss)
+    
+def generate_image(compound_list):
+    if isinstance(compound_list, str):
+        compound_list = [compound_list]
+    mss = []
+    for i,value in enumerate(compound_list):
+        molecule_name = compound_list[i][1]
+        mol = get_mol(molecule_name)
+        if mol:
+            mss.append(mol)
+        core=Chem.MolFromSmarts('[OH]')
+    return Draw.MolsToGridImage(mss,highlightAtomLists=[mol.GetSubstructMatch(core) for mol in mss])
+
+def main(compound_list):
+    print (pka_increasing(compound_list))
+    return generate_image(pka_increasing(compound_list))
+
+
+    
+main(['propylene glycol','aspirin','ibuprofen'])

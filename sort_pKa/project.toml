@@ -8,4 +8,4 @@ version=0.0.1
 dependencies = [
   "rdkit", "pandas", "PubChemPy", "request"
 ]
-description='package that receives a list of molecule names and returns their SMILES representation and a sorted list of their pKas '
+description='package that receives a list of molecule names and returns their SVG representation and a sorted list of their pKas '
