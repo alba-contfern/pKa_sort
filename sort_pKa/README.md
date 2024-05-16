@@ -1,8 +1,21 @@
+#Acidity comparison
 
-About:
+Welcome to the repository for the acidity comparison package. The objective of creating this package was to have a program able to sort a list of given molecules from least to most acid. This can be useful for first year organic chemists, when learning about acidity and how to classify acids from weakest to strongest. 
 
-The objective of creating this package was to have a program able to sort given molecules from least to most acid. This is useful in first year organic chemistry, for example to verify one's exercise answers or, thanks to the pKa values given, compare the difference of acidity between them. 
+This package mainly uses rdkit and pubchempy packages, pubchem being the source for all the pka values that the package outputs. 
 
+#Installation
 
+To install this package, you need to make sure that the following packages are installed:
+-rdkit
+-pubchempy
+-pandas
 
-To use this package, the PubChemPy package will need to be installed, as well as rdkit, pandas and request
+You can install them by entering the following lines into your terminal:
+
+```bash
+pip install rdkit
+pip install pubchempy
+pip install pandas
+```
+
