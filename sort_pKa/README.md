@@ -20,3 +20,13 @@ pip install pandas==2.1.4
 ```
 
 Note: these are the versions of the packages that were used to build this code, it could potentially work with other versions of these packages.
+
+# Usage
+
+In order to use this package, you will need to import the package into your code, you can do so using the following code:
+
+```bash
+import pka_sort as pk
+```
+
+You can then call on the function using `pk.main` in order to use it.
