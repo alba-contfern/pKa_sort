@@ -10,6 +10,7 @@ To install this package, you need to make sure that the following packages are i
 - rdkit
 - pubchempy
 - pandas
+- requests
 
 You can install them by entering the following lines into your terminal:
 
@@ -17,6 +18,7 @@ You can install them by entering the following lines into your terminal:
 pip install rdkit==2022.9.5
 pip install pubchempy==1.0.4
 pip install pandas==2.1.4
+pip install requests==2.31.0
 ```
 
 Note: these are the versions of the packages that were used to build this code, it could potentially work with other versions of these packages.
