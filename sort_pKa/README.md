@@ -29,4 +29,4 @@ In order to use this package, you will need to import the package into your code
 import pka_sort as pk
 ```
 
-You can then call on the function using `pk.main` in order to use it.
+You can then call on any of the functions using `pk.function`.
