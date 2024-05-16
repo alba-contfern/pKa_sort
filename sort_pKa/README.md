@@ -7,9 +7,9 @@ This package mainly uses rdkit and pubchempy packages, pubchem being the source 
 # Installation
 
 To install this package, you need to make sure that the following packages are installed:
--rdkit
--pubchempy
--pandas
+- rdkit
+- pubchempy
+- pandas
 
 You can install them by entering the following lines into your terminal:
 
