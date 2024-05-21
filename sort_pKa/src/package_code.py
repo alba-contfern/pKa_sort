@@ -30,6 +30,7 @@ def get_test(compound):
 
 
 debug = False
+#(c) 2020 khoivan88
 def pka_lookup_pubchem(identifier, namespace=None, domain='compound') -> Optional[str]:
     global debug
 
