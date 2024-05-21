@@ -197,7 +197,6 @@ def pka_increasing(list):
             #return f'Could not find pKa value for {list[i]}'
 #should take as an input the result of the pka_increasing function and get the images in the right order
 
-
     
 def generate_image(compound_list):
     if isinstance(compound_list, str):

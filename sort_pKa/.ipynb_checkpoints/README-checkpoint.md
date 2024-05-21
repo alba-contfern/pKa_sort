@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Acidity comparison
 
 Welcome to the repository for the acidity comparison package. The objective of creating this package was to have a program able to sort a list of given molecules from least to most acid. This can be useful for first year organic chemists, when learning about acidity and how to classify acids from weakest to strongest. 
@@ -32,3 +33,8 @@ import pka_sort as pk
 ```
 
 You can then call on any of the functions using `pk.function`.
+=======
+
+
+
+>>>>>>> 3ba75b685757dbd94f474c6c067ed4ae482ab9d8
