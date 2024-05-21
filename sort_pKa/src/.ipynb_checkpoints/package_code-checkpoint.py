@@ -16,7 +16,7 @@ from rdkit.Chem.Draw import IPythonConsole
 IPythonConsole.ipython_useSVG=True
 
 #function that gets the smile for each molecule
-def get_test(compound):
+def get_mol(compound):
     results = pcp.get_compounds(compound, 'name')
     if results:
         for compound in results:
@@ -197,12 +197,7 @@ def pka_increasing(list):
             #return f'Could not find pKa value for {list[i]}'
 
 #should take as an input the result of the pka_increasing function and get the images in the right order
-def generate_image(list_of_molecule):
-    mss=[]
-    for i,value in enumerate(list_of_molecule):
-        molecule_name = list_of_molecule[i][1]
-        mss.append(get_test(molecule_name))
-    return Draw.MolsToGridImage(mss)
+
     
 def generate_image(compound_list):
     if isinstance(compound_list, str):
@@ -226,4 +221,4 @@ def main(compound_list):
     
 
     
-main(['water','aspirin','ibuprofen'])
+main(['methanol','aspirin','ibuprofen'])
