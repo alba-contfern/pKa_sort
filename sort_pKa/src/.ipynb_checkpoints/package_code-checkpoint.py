@@ -221,4 +221,3 @@ def main(compound_list):
     
 
     
-main(['methanol','aspirin','ibuprofen'])
