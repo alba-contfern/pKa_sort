@@ -201,6 +201,3 @@ def pka_increasing(list):
         dict[pka['pKa'][0:3]]=list[i]
     print (sorted(dict.items()))
         
-if __nam
-        
-pka_increasing(list)
