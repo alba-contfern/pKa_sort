@@ -29,7 +29,7 @@ def get_mol(compound):
 
 #We need an entry in Cas or the name but need to specify it in the second entry of the function
 # either pka_lookup_pubchem("acetic acid", "Name") or pka_lookup_pubchem("'64-19-7' ","cid")
-
+#(c) 2020 khoivan88
 
 debug = False
 def pka_lookup_pubchem(identifier, namespace=None, domain='compound') -> Optional[str]:
