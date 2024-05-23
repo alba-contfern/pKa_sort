@@ -25,7 +25,7 @@ Note: these are the versions of the packages that were used to build this code, 
 
 # Usage
 
-In order to use this package, you will need to import the package into your code, you can do so using the following code:
+In order to use this package, you will need to clone this repository onto your computer and then you will be able to import the package into your code, you can do so using the following code:
 
 ```bash
 import pka_sort as pk
