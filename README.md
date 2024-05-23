@@ -41,4 +41,4 @@ We have built an interface that can be used to compare a list of up to three mol
 pip install pysimplegui==5.0.4
 ```
 
-Note: this is the version of the package that was used to build this interface, it could potentially work with other versions of this package.
+Note: this is the version of the package that was used to build this interface, it could potentially work with other versions of this package. This interface can be used separately from the code and the code can also be used without this interface.
