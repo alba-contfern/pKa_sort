@@ -32,3 +32,13 @@ import pka_sort as pk
 ```
 
 You can then call on any of the functions using `pk.function`.
+
+# Interface
+
+We have built an interface that can be used to compare a list of up to three molecules, by inputing the number of molecules that the user wants to compare and then entering each molecule name separately. However, to use this interface, the `pysimplegui` package is necessary. This requires creating an account, and the application is only free for non-commercial use. To install this package, you can use the following version:
+
+```bash
+pip install pysimplegui==5.0.4
+```
+
+Note: this is the version of the package that was used to build this interface, it could potentially work with other versions of this package.
