@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Acidity comparison
 
 Welcome to the repository for the acidity comparison package. The objective of creating this package was to have a program able to sort a list of given molecules from least to most acid. This can be useful for first year organic chemists, when learning about acidity and how to classify acids from weakest to strongest. 
@@ -33,8 +32,13 @@ import pka_sort as pk
 ```
 
 You can then call on any of the functions using `pk.function`.
-=======
 
+# Interface
 
+We have built an interface that can be used to compare a list of up to three molecules, by inputing the number of molecules that the user wants to compare and then entering each molecule name separately. However, to use this interface, the `pysimplegui` package is necessary. This requires creating an account, and the application is only free for non-commercial use. To install this package, you can use the following version:
 
->>>>>>> 3ba75b685757dbd94f474c6c067ed4ae482ab9d8
+```bash
+pip install pysimplegui==5.0.4
+```
+
+Note: this is the version of the package that was used to build this interface, it could potentially work with other versions of this package.

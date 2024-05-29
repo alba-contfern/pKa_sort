@@ -25,10 +25,22 @@ Note: these are the versions of the packages that were used to build this code, 
 
 # Usage
 
-In order to use this package, you will need to import the package into your code, you can do so using the following code:
+In order to use this package, you will need to fork and clone this repository onto your computer and then you will be able to import the package into your code, you can do so using the following code lines:
 
 ```bash
+git clone https://github.com/<username>/pKa_sort.git
+
 import pka_sort as pk
 ```
 
 You can then call on any of the functions using `pk.function`.
+
+# Interface
+
+We have built an interface that can be used to compare a list of up to three molecules, by inputing the number of molecules that the user wants to compare and then entering each molecule name separately. However, to use this interface, the `pysimplegui` package is necessary. This requires creating an account, and the application is only free for non-commercial use. To install this package, you can use the following version:
+
+```bash
+pip install pysimplegui==5.0.4
+```
+
+Note: this is the version of the package that was used to build this interface, it could potentially work with other versions of this package. This interface can be used separately from the code and the code can also be used without this interface.
